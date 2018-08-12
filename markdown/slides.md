@@ -68,7 +68,7 @@ class: left middle
   código.
 ]
 
-.footnote[.alt-link[[Uno de las herramientas mas usadas es Babel](https://babeljs.io/)]]
+.footnote[.alt-link[[Una de las herramientas mas usadas es Babel](https://babeljs.io/)]]
 
 ---
 class: left middle
@@ -146,6 +146,110 @@ Algunos otros procesos sobre otros __Assets__ incluyen:
 * _Transpilado_ de __CSS__ (SCSS, Stylus, etc.)
 * _Prefijado_ de __CSS__ con prefijos de __propietario__.
 * _Minificación_ de __CSS__ y __HTML__.
+]
+
+.footnote[.alt-link[[Parcel utiliza también PostCSS para gran cantidad de procesos](https://postcss.org/)]]
+---
+class: center, middle
+
+# Parcel
+
+---
+class: left, middle
+
+# Configuración
+
+.big[
+_Parcel_ pretende ser un __bundler__ completo para todo tipo de assets
+(_JavaScript_, _CSS_, _HTML_), con la menor cantidad de configuración posible!,
+puedes empezar __sin__ un archivo de configuración.
+]
+
+---
+class: left, middle
+
+# Procesos incluidos
+
+.big[
+* _Transpilación_ (__SCSS__ a CSS, __Babel__ para JavaScript).
+* _Code Splitting_ (Nativo, Usando _dynamic imports_).
+* _Autoprefixing_, otros procesos de CSS.
+* _Minificación_ (HTML, CSS, JavaScript).
+* _Versionado_ (CSS, JavaScript, Actualización automática de __Referencias__).
+]
+
+---
+class: left, middle
+
+# Instalación
+
+```bash
+npm install parcel-bundler
+# or
+yarn add parcel-bundler
+```
+
+---
+class: left, middle
+
+# Uso de Referencias relativas
+
+.big[
+Para hacer referencia a cualquier tipo de _asset_ desde uno de los archivos
+que __parcel__ empaquetará solo debes usar _referencias relativas_:
+]
+
+```html
+...
+<script src='../src/index.js'></script>
+...
+```
+
+---
+class: left, middle
+
+# Servidor de desarrollo
+
+.big[
+Parcel incluye un _servidor de desarrollo_ con __hot reloading__,
+para inicializarlo solo debes conocer __tu punto de inicio__, (usualmente un
+archivo _HTML_):
+]
+
+```bash
+parcel index.html
+```
+
+.big[
+Si ya tienes un servidor, puedes usarlo solo para construir tus _assets_:
+]
+
+```bash
+parcel watch index.html
+```
+
+---
+class: left, middle
+
+# Archivos productivos
+
+.big[
+Finalmente para obtener nuestros _assets_ procesados para __producción__:
+]
+
+```bash
+parcel build index.html
+```
+
+---
+class: left, middle
+
+# Funcionalidad Avanzada
+
+.big[
+_Parcel_ También permite gran cantidad de __personalización__ a través de su
+__API__, para necesidades más avanzadas, los invito a pegar un vistazo a la
+.alt-link[[documentación](https://parceljs.org/api.html)]
 ]
 
 ---
