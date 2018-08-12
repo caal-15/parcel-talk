@@ -6,7 +6,7 @@ class: middle, center, general
 ## Una introducción usando Parcel
 Una pequeña charla por [Carlos González](http://caal-15.github.io)
 
-Síguela en [caal-15.github.io/ci-talk](http://caal-15.github.io/image-stitching-talk)
+Síguela en [caal-15.github.io/parcel-talk](http://caal-15.github.io/parcel-talk)
 .footnote[.alt-link[[Página Web de Parcel](https://parceljs.org/)]]
 
 ---
