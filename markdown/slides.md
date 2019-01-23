@@ -129,7 +129,7 @@ class: left middle
 
 .big[
   En ocasiones es necesario que nuestro __código__ no se cargue completamente,
-  sino que se vayan cargande __paquetes__ del mismo a medida que sea
+  sino que se vayan cargando __paquetes__ del mismo a medida que sea
   _necesario_.
 
   Al proceso de crear los paquetes se le conoce como _Code Splitting_.
@@ -157,30 +157,6 @@ class: center, middle
 ---
 class: left, middle
 
-# Configuración
-
-.big[
-_Parcel_ pretende ser un __bundler__ completo para todo tipo de assets
-(_JavaScript_, _CSS_, _HTML_), con la menor cantidad de configuración posible!,
-puedes empezar __sin__ un archivo de configuración.
-]
-
----
-class: left, middle
-
-# Procesos incluidos
-
-.big[
-* _Transpilación_ (__SCSS__ a CSS, __Babel__ para JavaScript).
-* _Code Splitting_ (Nativo, Usando _dynamic imports_).
-* _Autoprefixing_, otros procesos de CSS.
-* _Minificación_ (HTML, CSS, JavaScript).
-* _Versionado_ (CSS, JavaScript, Actualización automática de __Referencias__).
-]
-
----
-class: left, middle
-
 # Instalación
 
 ```bash
@@ -203,6 +179,103 @@ que __parcel__ empaquetará solo debes usar _referencias relativas_:
 ...
 <script src='../src/index.js'></script>
 ...
+```
+
+---
+class: left, middle
+
+# Configuración
+
+.big[
+_Parcel_ pretende ser un __bundler__ completo para todo tipo de assets
+(_JavaScript_, _CSS_, _HTML_), con la menor cantidad de configuración posible!,
+puedes empezar __sin__ un archivo de configuración, al menos para proyectos
+que no contienen _React_ :P.
+
+A continuación cubriremos la configuración básica para los procesos de interés.
+]
+
+---
+class: left, middle
+
+# Procesos incluidos
+
+.big[
+* _Transpilación_ (__SCSS__ a CSS, __Babel__ para JavaScript).
+* _Code Splitting_ (Nativo, Usando _dynamic imports_).
+* _Autoprefixing_, otros procesos de CSS.
+* _Minificación_ (HTML, CSS, JavaScript).
+* _Versionado_ (CSS, JavaScript, Actualización automática de __Referencias__).
+]
+
+---
+class: left, middle
+
+# Transpilación: Babel
+
+.big[
+Para configurar Babel, lo hacemos simplemente utilizando _.babelrc_, no hay
+necesidad de nada más!, una configuración tradicional podría ser:
+]
+
+```javascript
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ]
+}
+```
+
+---
+class: left, middle
+
+# Code Splitting: Dynamic Imports
+
+.big[
+Como dijimos, _Parcel_ utiliza __Dynamic Imports__ para hacer
+__code splitting__, y en _React_, puedes utilizar __Dynamic Imports__ con
+componentes usando _lazy_.
+]
+
+```javascript
+const OtherComponent = React.lazy(
+  () => import('./OtherComponent')
+)
+const MyComponent = () => {
+  return (
+    <div>
+      <OtherComponent />
+    </div>
+  )
+}
+```
+
+---
+class: left, middle
+
+# Code Splitting Tip
+
+.big[
+Puedes mostrar un __placeholder__ mientras carga tu componente usando
+_Suspense_!
+]
+
+```javascript
+const OtherComponent = React.lazy(
+  () => import('./OtherComponent')
+)
+const MyComponent = () => {
+  return (
+    <div>
+      <Suspense
+        fallback={<div>Loading...</div>}
+      >
+        <OtherComponent />
+      </Suspense>
+    </div>
+  );
+}
 ```
 
 ---
