@@ -3,7 +3,7 @@ layout: true
 ---
 class: middle, center, general
 # Empaquetado para la web
-## Una introducción usando Parcel
+## Una introducción usando Parcel y React
 Una pequeña charla por [Carlos González](http://caal-15.github.io)
 
 Síguela en [caal-15.github.io/parcel-talk](http://caal-15.github.io/parcel-talk)
@@ -168,7 +168,21 @@ yarn add parcel-bundler
 ---
 class: left, middle
 
-# Uso de Referencias relativas
+# Procesos incluidos
+
+.big[
+* _Transpilación_ (__SCSS__ a CSS, __Babel__ para JavaScript).
+* _Code Splitting_ (Nativo, Usando _dynamic imports_).
+* _Autoprefixing_, otros procesos de CSS.
+* _Minificación_ (HTML, CSS, JavaScript).
+* _Versionado_ (CSS, JavaScript, Actualización automática de __Referencias__).
+]
+
+---
+class: left, middle
+
+# Cómo referenciar tus archivos
+## Uso de Referencias relativas
 
 .big[
 Para hacer referencia a cualquier tipo de _asset_ desde uno de los archivos
@@ -193,19 +207,6 @@ puedes empezar __sin__ un archivo de configuración, al menos para proyectos
 que no contienen _React_ :P.
 
 A continuación cubriremos la configuración básica para los procesos de interés.
-]
-
----
-class: left, middle
-
-# Procesos incluidos
-
-.big[
-* _Transpilación_ (__SCSS__ a CSS, __Babel__ para JavaScript).
-* _Code Splitting_ (Nativo, Usando _dynamic imports_).
-* _Autoprefixing_, otros procesos de CSS.
-* _Minificación_ (HTML, CSS, JavaScript).
-* _Versionado_ (CSS, JavaScript, Actualización automática de __Referencias__).
 ]
 
 ---
@@ -254,7 +255,7 @@ const MyComponent = () => {
 ---
 class: left, middle
 
-# Code Splitting Tip
+## Code Splitting Tip
 
 .big[
 Puedes mostrar un __placeholder__ mientras carga tu componente usando
